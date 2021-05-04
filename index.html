@@ -10,21 +10,75 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <title>Hollywood Hub</title>
   </head>
   <body>
 
-    <label for="searchBtn"></label>
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#searchModal"
-      id="openSearchModal"
-    >
-      Search
-    </button>
+    <!-- navbar -->
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://static.thenounproject.com/png/652105-200.png"
+            alt="tv icon"
+            width="85"
+            height="75"
+            class="d-inline-block align-text-top"
+          />
+          Hollywood Hub
+        </a>
+      </div>
+    </nav>
+
+    <!-- search bar -->
+
+    <section class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <form class="d-flex">
+          <!-- <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          /> -->
+         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="searchModal" id="openSearchModal">
+            Search
+         </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- card container for saved search results -->
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+
+
+    
     <section class="modal-dialog modal-dialog-centerd" id="openSearchModal">
       <form id="searchModal">
         <select class="form-select">
@@ -36,6 +90,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </section>
+
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
