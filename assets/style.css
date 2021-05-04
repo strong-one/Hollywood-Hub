@@ -1,0 +1,10 @@
+.srhPage {
+  background-color: rgb(38, 34, 48);
+  color: aliceblue;
+}
+
+.cardSrh,
+.containerSrh {
+  background-color: rgb(34, 23, 44);
+  color: aliceblue;
+}
