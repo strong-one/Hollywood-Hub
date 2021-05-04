@@ -13,21 +13,23 @@
       type="button"
       class="btn btn-primary"
       data-bs-toggle="modal"
-      data-bs-target="#searchModal"
+      data-bs-target="searchModal"
       id="openSearchModal"
     >
       Search
     </button>
-    <section class="modal-dialog modal-dialog-centerd" id="openSearchModal">
-      <form id="searchModal">
-        <select class="form-select">
-          <option value="artist">Artist</option>
-          <option value="movie">Movie</option>
-          <option value="series">Tv Series</option>
-        </select>
-        <input type="text" placeholder="Name" />
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+    <section class="modal fade" id="openSearchModal">
+      <div class="modal-dialog modal-dialog-centerd">
+        <form id="searchModal">
+          <select class="form-select">
+            <option value="artist">Artist</option>
+            <option value="movie">Movie</option>
+            <option value="series">Tv Series</option>
+          </select>
+          <input type="text" placeholder="Name" />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </section>
 
     <script src="./assets/script.js"></script>
