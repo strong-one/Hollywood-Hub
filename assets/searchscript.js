@@ -3,11 +3,26 @@
 //----------------------
 const aduiodbKey = 1;
 const ombdKey = "eefbdf3d";
+
+const searchModal = document.querySelector("#searchModal");
+const searchFormat = document.querySelector("#format");
+const searchQuery = document.querySelector("#searchQuery");
 //----------------
 // call functions
 //----------------
 
 parseLocation();
+
+//-----------------
+// event listeners
+//-----------------
+searchModal.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let format = searchFormat.value;
+  let query = searchQuery.value;
+
+  location.assign(`./searchresult.html?q=${query}&format=${format}`);
+});
 
 //-----------
 // Functions
