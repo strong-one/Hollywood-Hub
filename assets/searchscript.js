@@ -66,6 +66,7 @@ function audiodbCall(requestUrl) {
     })
     .then(function (data) {
       console.log(data);
+      // do things to get info to page
     });
 }
 
@@ -80,5 +81,6 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
+      // do things to get info to page
     });
 }
