@@ -41,6 +41,9 @@ footer {
   word-spacing: 2px;
   text-transform: capitalize;
 }
+.credits li {
+  display: inline;
+}
 .navbar-brand {
   display: flex;
   align-items: baseline;
