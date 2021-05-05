@@ -35,20 +35,21 @@ function createAPICallUrls(format, query) {
   newUrl = "";
   switch (format) {
     case "artist": {
-      newUrl = `theaudiodb.com/api/v1/json/${aduiodbKey}/search.php?s=${query}`;
+      newUrl = `https://theaudiodb.com/api/v1/json/${aduiodbKey}/search.php?s=${query}`;
+      audiodbCall(newUrl);
       break;
     }
     case "movie": {
-      newUrl = `http://www.omdbapi.com/?apikey=${ombdKey}}&type=${format}&t=${query}`;
+      newUrl = `https://www.omdbapi.com/?type=${format}&t=${query}&apikey=${ombdKey}`;
+      ombdCall(newUrl, format);
       break;
     }
     case "series": {
-      newUrl = `http://www.omdbapi.com/?apikey=${ombdKey}}&type=${format}&t=${query}`;
+      newUrl = `https://www.omdbapi.com/?type=${format}&t=${query}&apikey=${ombdKey}`;
+      ombdCall(newUrl, format);
       break;
     }
   }
-  console.log(newUrl);
-  audiodbCall(newUrl);
 }
 // fetch the information
 // make a fetch
@@ -59,8 +60,25 @@ function audiodbCall(requestUrl) {
     .then(function (response) {
       if (!response.ok) {
         throw response.json();
+      } else {
+        return response.json();
       }
-      return response.json();
     })
-    .then(function (data) {});
+    .then(function (data) {
+      console.log(data);
+    });
+}
+
+function ombdCall(requestUrl, format) {
+  fetch(requestUrl)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      } else {
+        return response.json();
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
