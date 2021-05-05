@@ -3,26 +3,11 @@
 //----------------------
 const aduiodbKey = 1;
 const ombdKey = "eefbdf3d";
-
-const searchModal = document.querySelector("#searchModal");
-const searchFormat = document.querySelector("#format");
-const searchQuery = document.querySelector("#searchQuery");
 //----------------
 // call functions
 //----------------
 
 parseLocation();
-
-//-----------------
-// event listeners
-//-----------------
-searchModal.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let format = searchFormat.value;
-  let query = searchQuery.value;
-
-  location.assign(`./searchresult.html?q=${query}&format=${format}`);
-});
 
 //-----------
 // Functions
@@ -81,7 +66,6 @@ function audiodbCall(requestUrl) {
     })
     .then(function (data) {
       console.log(data);
-      // do things to get info to page
     });
 }
 
@@ -96,8 +80,17 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
-      // do things to get info to page
     });
 }
-// add on click event for pin button that will save info to front page save area
-// multiple columns for movies and artists
+
+// function to save pins in local storage
+
+document.querySelector("#pinSrh").addEventListener("click", function () {
+  var search = JSON.parse(localStorage.getItem("#searchQuery"));
+
+  var data = document.getElementById("#searchQuery");
+
+  search.push(data);
+
+  localStorage.setItem("searchQuery", JSON.stringify(data));
+});
