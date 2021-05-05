@@ -82,3 +82,5 @@ function ombdCall(requestUrl, format) {
       console.log(data);
     });
 }
+// add on click event for pin button that will save info to front page save area
+// multiple columns for movies and artists
