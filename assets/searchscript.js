@@ -7,6 +7,8 @@ const ombdKey = "eefbdf3d";
 const searchModal = document.querySelector("#searchModal");
 const searchFormat = document.querySelector("#format");
 const searchQuery = document.querySelector("#searchQuery");
+
+const infoDisplay = document.querySelector("#display");
 //----------------
 // call functions
 //----------------
@@ -82,6 +84,7 @@ function audiodbCall(requestUrl) {
     .then(function (data) {
       console.log(data);
       // do things to get info to page
+      displayBand(data);
     });
 }
 
@@ -101,3 +104,19 @@ function ombdCall(requestUrl, format) {
 }
 // add on click event for pin button that will save info to front page save area
 // multiple columns for movies and artists
+
+function displayBand(data) {
+  let band = data.artists[0];
+  let temp = `
+      <div class="card mb-3">
+        <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
+        <button type="button" id="pinSrh">Pin💕</button>
+        <div class="card-body">
+          <h5 class="card-title">${band.strArtist}</h5>
+          <p class="card-text">${band.strBiographyEN}</p>
+          <h6 class="card-subtitle">discography</h6>
+        </div>
+      </div>
+  `;
+  infoDisplay.innerHTML = temp;
+}
