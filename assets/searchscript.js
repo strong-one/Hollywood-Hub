@@ -7,22 +7,13 @@ const ombdKey = "eefbdf3d";
 const searchModal = document.querySelector("#searchModal");
 const searchFormat = document.querySelector("#format");
 const searchQuery = document.querySelector("#searchQuery");
-//----------------
+
+const infoDisplay = document.querySelector("#display");
+
 // call functions
 //----------------
 
 parseLocation();
-
-//-----------------
-// event listeners
-//-----------------
-searchModal.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let format = searchFormat.value;
-  let query = searchQuery.value;
-
-  location.assign(`./searchresult.html?q=${query}&format=${format}`);
-});
 
 //-----------
 // Functions
@@ -82,6 +73,7 @@ function audiodbCall(requestUrl) {
     .then(function (data) {
       console.log(data);
       // do things to get info to page
+      displayBand(data);
     });
 }
 
@@ -96,8 +88,74 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
-      // do things to get info to page
     });
 }
+
 // add on click event for pin button that will save info to front page save area
 // multiple columns for movies and artists
+
+function displayBand(data) {
+  let band = data.artists[0];
+  let temp = `
+      <div class="card mb-3">
+        <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
+        <button type="button" id="pinSrh">Pin💕</button>
+        <div class="card-body">
+          <h5 class="card-title">${band.strArtist}</h5>
+          <p class="card-text">${band.strBiographyEN}</p>
+          <h6 class="card-title">discography</h6>
+          <div class="row" id="discography">
+            
+          </div>
+        </div>
+      </div>
+  `;
+  infoDisplay.innerHTML = temp;
+  getDiscography(band.idArtist);
+}
+
+function getDiscography(artistID) {
+  let url = `https://theaudiodb.com/api/v1/json/${aduiodbKey}/album.php?i=${artistID}`;
+  fetch(url)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      } else {
+        return response.json();
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+      let albums = data.album;
+      let albumDisplay = document.querySelector("#discography");
+      albums.forEach((album) => {
+        // create new element
+        let newCard = document.createElement("div");
+        // add class and styling to the card
+        newCard.classList.add("card");
+        newCard.setAttribute("style", "width: 18rem;");
+        // set the inner html to show album info
+        newCard.innerHTML = `
+          <img class="card-img-top" src="${album.strAlbumThumb}" alt="Card image cap">
+          <div class="card-body">
+          <h5 class="card-title">${album.strAlbum}</h5>
+          <p class="card-text">${album.intYearReleased}</p>
+          </div>
+        `;
+        // add as child
+        albumDisplay.appendChild(newCard);
+      });
+    });
+}
+
+// function to save pins in local storage
+
+document.querySelector("#pinSrh").addEventListener("click", function () {
+  var search = JSON.parse(localStorage.getItem("#searchQuery"));
+
+  var data = document.getElementById("#searchQuery");
+
+  search.push(data);
+
+  localStorage.setItem("searchQuery", JSON.stringify(data));
+});
