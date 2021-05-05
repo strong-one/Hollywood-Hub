@@ -54,12 +54,12 @@ function createAPICallUrls(format, query) {
 // get the fetch return as a json file type
 //
 function audiodbCall(requestUrl) {
-  fetch(requestUrl).then(function (response) {
-    if (!response.ok) {
-      throw response.json();
-    }
-    return response.json();
-  }).then(data){
-    console.log(data);
-  }
+  fetch(requestUrl)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    })
+    .then(function (data) {});
 }
