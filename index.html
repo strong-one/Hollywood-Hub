@@ -100,7 +100,7 @@
           <div class="modal-body">
             <form id="searchModal">
               <div class="form-group p-2">
-                <select class="form-select">
+                <select class="form-select" id="format">
                   <option value="artist">Artist</option>
                   <option value="movie">Movie</option>
                   <option value="series">Tv Series</option>
@@ -111,13 +111,12 @@
                   type="text"
                   class="form-control"
                   placeholder="Name"
+                  id="searchQuery"
                   required
                 />
               </div>
               <div class="form-group p-2">
-                <button type="submit" class="btn btn-primary w-100">
-                  Search
-                </button>
+                <button class="btn btn-primary w-100">Search</button>
               </div>
             </form>
           </div>
