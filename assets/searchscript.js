@@ -2,7 +2,7 @@
 // variable declaration
 //----------------------
 const aduiodbKey = 1;
-const ombdKey = 2;
+const ombdKey = eefbdf3d;
 //----------------
 // call functions
 //----------------
@@ -50,3 +50,16 @@ function createAPICallUrls(format, query) {
   console.log(newUrl);
 }
 // fetch the information
+// make a fetch
+// get the fetch return as a json file type
+//
+function audiodbCall(requestUrl) {
+  fetch(requestUrl).then(function (response) {
+    if (!response.ok) {
+      throw response.json();
+    }
+    return response.json();
+  }).then(data){
+    console.log(data);
+  }
+}
