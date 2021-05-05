@@ -44,6 +44,9 @@ footer {
 .credits li {
   display: inline;
 }
+.credits li:not(:first-child)::before {
+  content: " | ";
+}
 .navbar-brand {
   display: flex;
   align-items: baseline;
