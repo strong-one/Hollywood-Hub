@@ -114,7 +114,7 @@ function displayBand(data) {
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text">${band.strBiographyEN}</p>
-          <h6 class="card-subtitle">discography</h6>
+          <h6 class="card-title">discography</h6>
           <div class="row" id="discography">
             
           </div>
@@ -140,9 +140,12 @@ function getDiscography(artistID) {
       let albums = data.album;
       let albumDisplay = document.querySelector("#discography");
       albums.forEach((album) => {
+        // create new element
         let newCard = document.createElement("div");
+        // add class and styling to the card
         newCard.classList.add("card");
         newCard.setAttribute("style", "width: 18rem;");
+        // set the inner html to show album info
         newCard.innerHTML = `
           <img class="card-img-top" src="${album.strAlbumThumb}" alt="Card image cap">
           <div class="card-body">
@@ -150,11 +153,8 @@ function getDiscography(artistID) {
           <p class="card-text">${album.intYearReleased}</p>
           </div>
         `;
-
+        // add as child
         albumDisplay.appendChild(newCard);
-        // album name
-        // album cover
-        // release year
       });
     });
 }
