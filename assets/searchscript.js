@@ -101,6 +101,8 @@ function ombdCall(requestUrl, format) {
       console.log(data);
       if (format === "series") {
         displayShow(data);
+      } else if (format === "movie") {
+        movieDisplay(data);
       }
     });
 }
@@ -203,4 +205,19 @@ function displayShow(data) {
   <p> ${data.Rated} </p>
 </section>`;
   infoDisplay.innerHTML = temporary;
+}
+
+function movieDisplay(data) {
+  var movies = `<section class="movieDisplay">
+  <h1> ${data.Title} </h1>
+  <h2 class="actor">Actors :</h2>
+  <p> ${data.Actors} </p>
+  <h2 class="awards">Awards :</h2>
+  <p> ${data.Awards}</p>
+  <h2 class="plot">Plot : </h2>
+  <p> ${data.Plot} </p>
+  <h3 class="rated">Rated: </h3>
+  <p> ${data.Rated} </p>
+</section>`;
+  infoDisplay.innerHTML = movies;
 }
