@@ -27,6 +27,7 @@ const renderPins = () => {
   });
   // pins-insert is the id of container that will hold template and display on html
   document.querySelector("#pins-insert").innerHTML = template;
+  // add specicic ids for movies/tv to pin seperately in selected IDs
 };
 
 renderPins();

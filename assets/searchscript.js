@@ -26,6 +26,34 @@ searchModal.addEventListener("submit", function (event) {
   location.assign(`./searchresult.html?q=${query}&format=${format}`);
 });
 
+// add on click event for pin button that will save info to front page save area
+
+document.querySelector("#display").addEventListener("click", function (event) {
+  // looking for an id within the static element of html with index of pinSrh
+  if (event.target.getAttribute("id").indexOf("pinSrh") > -1) {
+    event.preventDefault();
+    // get data of what I want populated
+    var pinName = event.target.getAttribute("data");
+
+    // parsing pins and turning them into objects, if none, there will be an empty array
+    var pins = JSON.parse(localStorage.getItem("pins")) || [];
+
+    var filteredPins = pins.filter(function (pin) {
+      // if pin is existing, do not add (false), else, add to array (true)
+      if (pin === pinName) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    // artist name will be selected for pin on html
+    filteredPins.push(pinName);
+    // all filtered pins will be stored in Locally
+    localStorage.setItem("pins", JSON.stringify(filteredPins));
+
+    // need to render filteredPins to populate on HTML
+  }
+});
 //-----------
 // Functions
 //-----------
@@ -105,7 +133,6 @@ function ombdCall(requestUrl, format) {
     });
 }
 
-// add on click event for pin button that will save info to front page save area
 // multiple columns for movies and artists
 
 function displayBand(data) {
@@ -166,34 +193,11 @@ function getDiscography(artistID) {
 
 // function to save pins in local storage
 // need to find a static html element to add event listener too since id is in a template.
-document.querySelector("#display").addEventListener("click", function (event) {
-  // looking for an id within the static element of html with index of pinSrh
-  if (event.target.getAttribute("id").indexOf("pinSrh") > -1) {
-    event.preventDefault();
-    // get data of what I want populated
-    var artistName = event.target.getAttribute("data");
-    // parsing pins and turning them into objects, if none, there will be an empty array
-    var pins = JSON.parse(localStorage.getItem("pins")) || [];
-
-    var filteredPins = pins.filter(function (pin) {
-      // if pin is existing, do not add (false), else, add to array (true)
-      if (pin === artistName) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    // artist name will be selected for pin on html
-    filteredPins.push(artistName);
-    // all filtered pins will be stored in Locally
-    localStorage.setItem("pins", JSON.stringify(filteredPins));
-
-    // need to render filteredPins to populate on HTML
-  }
-});
 
 function displayShow(data) {
   var temporary = `<section class="tvShows">
+
+  <button type="button" id="pinSrh" data="${data.Title}">Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
