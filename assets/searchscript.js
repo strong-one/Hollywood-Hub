@@ -88,6 +88,7 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
+      document.querySelector("#tvTitle").innerHTML = data.title;
     });
 }
 
