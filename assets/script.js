@@ -30,3 +30,17 @@ const renderPins = () => {
 };
 
 renderPins();
+
+function removePin(name) {
+  let pins = JSON.parse(localStorage.getItem("pins")) || [];
+  let index = -1;
+  for (i = 0; i < pins.length; i++) {
+    if (pins[i].name === name) {
+      index = i;
+      break;
+    }
+  }
+  pins.splice(index, 1);
+  localStorage.setItem("pins", JSON.stringify(pins));
+  renderPins();
+}
