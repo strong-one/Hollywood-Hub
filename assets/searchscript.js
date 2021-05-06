@@ -99,7 +99,9 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
-      document.querySelector("#tvTitle").innerHTML = data.title;
+      if (format === "series") {
+        displayShow(data);
+      }
     });
 }
 
@@ -189,3 +191,16 @@ document.querySelector("#display").addEventListener("click", function (event) {
     // need to render filteredPins to populate on HTML
   }
 });
+
+function displayShow(data) {
+  var temporary = `<section class="tvShows">
+  <h1> ${data.Title} </h1>
+  <h2 class="actor">Actors :</h2>
+  <p> ${data.Actors} </p>
+  <h2 class="plot">Plot : </h2>
+  <p> ${data.Plot} </p>
+  <h3 class="rated">Tv Rating: </h3>
+  <p> ${data.Rated} </p>
+</section>`;
+  infoDisplay.innerHTML = temporary;
+}
