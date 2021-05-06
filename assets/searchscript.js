@@ -95,11 +95,13 @@ function ombdCall(requestUrl, format) {
 // multiple columns for movies and artists
 
 function displayBand(data) {
+  console.log("******data", data);
+
   let band = data.artists[0];
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh">Pin💕</button>
+        <button type="button" id="pinSrh" data="${band.strArtist}">Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text">${band.strBiographyEN}</p>
@@ -142,20 +144,36 @@ function getDiscography(artistID) {
           <p class="card-text">${album.intYearReleased}</p>
           </div>
         `;
-        // add as child
+        // add as child to element
         albumDisplay.appendChild(newCard);
       });
     });
 }
 
 // function to save pins in local storage
+// need to find a static html element to add event listener too since id is in a template.
+document.querySelector("#display").addEventListener("click", function (event) {
+  // looking for an id within the static element of html with index of pinSrh
+  if (event.target.getAttribute("id").indexOf("pinSrh") > -1) {
+    event.preventDefault();
+    // get data of what I want populated
+    var artistName = event.target.getAttribute("data");
+    // parsing pins and turning them into objects, if none, there will be an empty array
+    var pins = JSON.parse(localStorage.getItem("pins")) || [];
 
-document.querySelector("#pinSrh").addEventListener("click", function () {
-  var search = JSON.parse(localStorage.getItem("#searchQuery"));
+    var filteredPins = pins.filter(function (pin) {
+      // if pin is existing, do not add (false), else, add to array (true)
+      if (pin === artistName) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    // artist name will be selected for pin on html
+    filteredPins.push(artistName);
+    // all filtered pins will be stored in Locally
+    localStorage.setItem("pins", JSON.stringify(filteredPins));
 
-  var data = document.getElementById("#searchQuery");
-
-  search.push(data);
-
-  localStorage.setItem("searchQuery", JSON.stringify(data));
+    // need to render filteredPins to populate on HTML
+  }
 });
