@@ -9,3 +9,24 @@ searchModal.addEventListener("submit", function (event) {
 
   location.assign(`./searchresult.html?q=${query}&format=${format}`);
 });
+
+// need to render filteredPins to populate on HTML
+
+const renderPins = () => {
+  //get the pins
+  const pins = JSON.parse(localStorage.getItem("pins")) || [];
+
+  //create template - empty string to be able to display multiple templets for each pin
+  let template = "";
+
+  // for each pin, create a template of the name chosen to be saved.
+  pins.forEach((pin) => {
+    template += `
+      <h6>${pin}</h6>
+    `;
+  });
+  // pins-insert is the id of container that will hold template and display on html
+  document.querySelector("#pins-insert").innerHTML = template;
+};
+
+renderPins();
