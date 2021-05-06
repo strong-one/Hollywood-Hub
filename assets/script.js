@@ -42,5 +42,4 @@ function removePin(name) {
   }
   pins.splice(index, 1);
   localStorage.setItem("pins", JSON.stringify(pins));
-  renderPins();
 }
