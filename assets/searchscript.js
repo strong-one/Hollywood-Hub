@@ -144,7 +144,7 @@ function getDiscography(artistID) {
           <p class="card-text">${album.intYearReleased}</p>
           </div>
         `;
-        // add as child
+        // add as child to element
         albumDisplay.appendChild(newCard);
       });
     });
