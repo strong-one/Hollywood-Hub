@@ -34,20 +34,20 @@ document.querySelector("#display").addEventListener("click", function (event) {
     event.preventDefault();
     // get data of what I want populated
     var pinName = event.target.getAttribute("data");
-
+    var pinType = event.target.getAttribute("format");
     // parsing pins and turning them into objects, if none, there will be an empty array
     var pins = JSON.parse(localStorage.getItem("pins")) || [];
 
     var filteredPins = pins.filter(function (pin) {
       // if pin is existing, do not add (false), else, add to array (true)
-      if (pin === pinName) {
+      if (pin.name === pinName) {
         return false;
       } else {
         return true;
       }
     });
     // artist name will be selected for pin on html
-    filteredPins.push(pinName);
+    filteredPins.push({ name: pinName, format: pinType });
     // all filtered pins will be stored in Locally
     localStorage.setItem("pins", JSON.stringify(filteredPins));
 
@@ -144,7 +144,7 @@ function displayBand(data) {
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" data="${band.strArtist}">Pin💕</button>
+        <button type="button" id="pinSrh" data="${band.strArtist}"format = "artist" >Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text">${band.strBiographyEN}</p>
@@ -199,7 +199,7 @@ function getDiscography(artistID) {
 function displayShow(data) {
   var temporary = `<section class="tvShows">
 
-  <button type="button" id="pinSrh" data="${data.Title}">Pin💕</button>
+  <button type="button" id="pinSrh" data="${data.Title}" format = "series" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
@@ -220,6 +220,7 @@ function displayShow(data) {
 
 function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
+  <button type="button" id="pinSrh" data="${data.Title}" format = "movie" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
