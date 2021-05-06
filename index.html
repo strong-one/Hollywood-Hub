@@ -61,63 +61,13 @@
 
     <!-- Pins -->
     <div class="container">
-<<<<<<< HEAD
-      <div class="row">
-        <div class="col-12">
-          <h3>Music Pins</h3>
-          <div class="row">
-            <div class="col card">Pin #1</div>
-            <div class="col card">Pin #2</div>
-            <div class="col card">Pin #3</div>
-            <div class="col card">Pin #4</div>
-          </div>
-        </div>
-      </div>
-      <div id="music-pins" class="row"></div>
-      <div class="row">
-        <div class="col-12">
-          <h3>Movie Pins</h3>
-          <div class="row">
-            <div class="col card">Pin #1</div>
-            <div class="col card">Pin #2</div>
-            <div class="col card">Pin #3</div>
-            <div class="col card">Pin #4</div>
-          </div>
-=======
-    <div class="row">
-      <div class="col-12">
-        <h3>Music Pins</h3>
-        <!-- added id pins insert to have a reference for JS placement  -->
-        <div id="pins-insert"></div>
-        <div class="row">
-          <div class="col card">Pin #1</div>
-          <div class="col card">Pin #2</div>
-          <div class="col card">Pin #3</div>
-          <div class="col card">Pin #4</div>
-          
-        </div>
-      </div>
-    </div>
-    <div id="music-pins" class="row"></div>
-    <div class="row">
-      <div class="col-12">
-        <h3>5 Movie Pins</h3>
-        
-        <h3>Movie Pins</h3>
-        <div class="row">
-          <div class="col card">Pin #1</div>
-          <div class="col card">Pin #2</div>
-          <div class="col card">Pin #3</div>
-          <div class="col card">Pin #4</div>
 
-          
->>>>>>> main
         </div>
       </div>
       <div id="movie-pins" class="row"></div>
       <div class="row">
         <div class="col-12">
-          <h3>Tv Series Pins</h3>
+          <h3>TV Series</h3>
           <div class="row">
             <div class="col card">Pin #1</div>
             <div class="col card">Pin #2</div>
@@ -126,46 +76,46 @@
           </div>
         </div>
       </div>
-      <div id="tvseries-pins" class="row"></div>
+      <div id="tv-series" class="row"></div>
+    </div>
 
-      <div
-        class="modal fade"
-        id="openSearchModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="openSearchModal"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="openSearchModalTitle">
-                Search for Artist, Movie, or Show
-              </h5>
-            </div>
-            <div class="modal-body">
-              <form id="searchModal">
-                <div class="form-group p-2">
-                  <select class="form-select" id="format">
-                    <option value="artist">Artist</option>
-                    <option value="movie">Movie</option>
-                    <option value="series">Tv Series</option>
-                  </select>
-                </div>
-                <div class="form-group p-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Name"
-                    id="searchQuery"
-                    required
-                  />
-                </div>
-                <div class="form-group p-2">
-                  <button class="btn btn-primary w-100">Search</button>
-                </div>
-              </form>
-            </div>
+    <div
+      class="modal fade"
+      id="openSearchModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="openSearchModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="openSearchModalTitle">
+              Search for Artist, Movie, or Show
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form id="searchModal">
+              <div class="form-group p-2">
+                <select class="form-select" id="format">
+                  <option value="artist">Artist</option>
+                  <option value="movie">Movie</option>
+                  <option value="series">Tv Series</option>
+                </select>
+              </div>
+              <div class="form-group p-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  id="searchQuery"
+                  required
+                />
+              </div>
+              <div class="form-group p-2">
+                <button class="btn btn-primary w-100">Search</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

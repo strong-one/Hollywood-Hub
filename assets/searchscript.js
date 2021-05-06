@@ -15,6 +15,17 @@ const infoDisplay = document.querySelector("#display");
 
 parseLocation();
 
+//---------------
+// eventListener
+//---------------
+searchModal.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let format = searchFormat.value;
+  let query = searchQuery.value;
+
+  location.assign(`./searchresult.html?q=${query}&format=${format}`);
+});
+
 //-----------
 // Functions
 //-----------
