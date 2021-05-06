@@ -197,10 +197,17 @@ function displayShow(data) {
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
+  <h2 class="awards">Awards :</h2>
+  <p> ${data.Awards}
   <h2 class="plot">Plot : </h2>
   <p> ${data.Plot} </p>
-  <h3 class="rated">Tv Rating: </h3>
+  <h2 class="rated">Tv Rating: </h2>
   <p> ${data.Rated} </p>
+  <h3 class="released">Released Date:</h3>
+  <p>${data.Released}</p>
+  <h3 class="totalSeasons">Total Seasons:</h3>
+  <p>${data.totalSeasons}</p>
+
 </section>`;
   infoDisplay.innerHTML = temporary;
 }
