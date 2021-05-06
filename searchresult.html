@@ -10,13 +10,55 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <title>Hollywood Hub</title>
   </head>
 
   <body class="srhPage">
     <!-- Nav Bar VVV -->
-    <nav>
+
+    <!-- navbar -->
+    <section class="background">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid justify-content-center">
+          <a class="navbar-brand" href="./index.html">
+            <img
+              src="https://static.thenounproject.com/png/652105-200.png"
+              alt="smiling tv icon"
+              width="125"
+              height="115"
+              class="d-inline-block align-text-top"
+            />
+            <h1 class="title">Hollywood Hub</h1>
+          </a>
+        </div>
+      </nav>
+
+      <!-- search bar -->
+
+      <section class="navbar navbar-light bg-light">
+        <div class="container-fluid justify-content-center">
+          <form class="d-flex">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#openSearchModal"
+              id="openSearchModalBtn"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </section>
+    </section>
+    <!-- <nav>
       <button type="button" class="btn" id="backBtn">
         <img
           src="https://static.thenounproject.com/png/652105-200.png"
@@ -24,9 +66,9 @@
           width="125"
           height="115"
         />
-      </button>
+      </button> -->
 
-      <div class="container-fluid">
+      <!-- <div class="container-fluid">
         <form class="d-flex">
           <button
             type="button"
@@ -39,7 +81,7 @@
           </button>
         </form>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- img card -->
     <div class="cardSrh">
@@ -100,7 +142,7 @@
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="container-fluid position-relative">
       <div class="footer-content">
         <h3>Hollywood Hub</h3>
         <ul class="credits">
