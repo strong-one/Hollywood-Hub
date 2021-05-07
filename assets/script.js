@@ -26,9 +26,20 @@ const renderPins = () => {
     let newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.classList.add("col-3");
+    newCard.classList.add("m-1");
     newCard.innerHTML = `
-    <h5 class = "card-title">${pin.name}</h5>
-    <button class="btn btn-danger"> remove</button>
+    <div class="card-body">
+      <h5 class = "card-title">${pin.name}</h5>
+      <button
+        type = "button" 
+        class="btn btn-danger btn-sm" 
+        data-bs-toggle="modal"
+        data-bs-target="#openConfirmRemoveModal"
+        id="openConfirmModalBtn"
+      >
+        Remove pin
+      </button>
+    </div>
     `;
     switch (pin.format) {
       case "artist": {
@@ -53,7 +64,7 @@ const renderPins = () => {
   //   `;
   // });
   // pins-insert is the id of container that will hold template and display on html
-  document.querySelector("#pins-insert").innerHTML = template;
+  //document.querySelector("#pins-insert").innerHTML = template;
   // add specicic ids for movies/tv to pin seperately in selected IDs
 };
 
