@@ -95,12 +95,6 @@ const renderPins = () => {
     }
   });
 
-  // for each pin, create a template of the name chosen to be saved.
-  // pins.forEach((pin) => {
-  //   template += `
-  //     <h6>${pin}</h6>
-  //   `;
-  // });
   // pins-insert is the id of container that will hold template and display on html
   //document.querySelector("#pins-insert").innerHTML = template;
   // add specicic ids for movies/tv to pin seperately in selected IDs
