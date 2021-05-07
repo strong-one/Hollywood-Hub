@@ -20,14 +20,18 @@ searchModal.addEventListener("submit", function (event) {
 // pin level remove pin button click event
 pinDisplay.addEventListener("click", (event) => {
   // target only the buttons in the cards
-  if (event.target.getAttribute("type") === "button") {
+  if (event.target.getAttribute("id") === "openConfirmModalBtn") {
     event.preventDefault();
+    event.stopPropagation();
+    console.log("pressed the remove key btn");
     console.log(event.target.getAttribute("pinName"));
     // send the name of the pin to the modal remove button
     confrimRemovePinBtn.setAttribute(
       "pinName",
       event.target.getAttribute("pinName")
     );
+  } else if (event.target.getAttribute("id") === "pinContent") {
+    console.log("search for " + event.target.getAttribute("pinName"));
   }
 });
 // confirm remove pin modal button
@@ -59,9 +63,11 @@ const renderPins = () => {
     newCard.classList.add("col-3");
     newCard.classList.add("m-1");
     newCard.innerHTML = `
-    <div class="card-body">
-      <h5 class = "card-title">${pin.name}</h5>
-      <button
+    
+    <section class = "card-body" id="pinContent" pinName = "${pin.name}" pinFormat = "${pin.format}">
+      <h3>${pin.name}</h3>
+    </section>
+    <button
         type = "button" 
         class="btn btn-danger btn-sm" 
         data-bs-toggle="modal"
@@ -70,8 +76,8 @@ const renderPins = () => {
         id="openConfirmModalBtn"
       >
         Remove pin
-      </button>
-    </div>
+    </button>
+
     `;
     switch (pin.format) {
       case "artist": {
