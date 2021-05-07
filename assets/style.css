@@ -68,6 +68,11 @@ footer {
 
 .container-fluid {
   padding-bottom: 20px;
+  justify-content: center;
+}
+
+#mainSearch {
+  margin-right: 15%;
 }
 
 .navbar {
@@ -78,11 +83,11 @@ footer {
   /* background-color: darkturquoise; */
   border: solid 5px black;
   margin-bottom: 30px;
-  background-image: url();
-  /* background-repeat: no-repeat;
+  background-image: url(./img/hollywoodsign.jpg);
+  background-repeat: no-repeat;
   width: 100%;
   object-fit: cover;
-  background-size: cover; */
+  background-size: cover;
 }
 
 body {
