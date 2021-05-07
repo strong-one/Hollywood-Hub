@@ -1,5 +1,7 @@
 # Hollywood-Hub
 [Link to site](https://strong-one.github.io/Hollywood-Hub/)
+ 
+![screenshot](./assets/img/hollywodhubpage.PNG)
 ## Description
 
 -  We created this app with a twist of IMDB and Pinterest in mind, utilizing a search and save function for the users favorite movies/musicians/tv shows.
@@ -7,12 +9,6 @@
 - We wanted to create a fun application that challenged our skills in page functionality and technical styling.
 - Our app could be useful for media students needing to save material regarding specific musicians or performers, or it could be a fun app for trivia night with friends.
 - A problem we incurred with HTML was having an extra div that was creating problems with fixing our footer to the bottom of the page. 
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
 
 ## Usage
 Provide instructions and examples for use. Include screenshots as needed.
