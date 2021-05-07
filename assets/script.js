@@ -20,6 +20,7 @@ searchModal.addEventListener("submit", function (event) {
 // pin level remove pin button click event
 pinDisplay.addEventListener("click", (event) => {
   // target only the buttons in the cards
+  console.log(event.target.getAttribute("id"));
   if (event.target.getAttribute("id") === "openConfirmModalBtn") {
     event.preventDefault();
     event.stopPropagation();
@@ -32,6 +33,11 @@ pinDisplay.addEventListener("click", (event) => {
     );
   } else if (event.target.getAttribute("id") === "pinContent") {
     console.log("search for " + event.target.getAttribute("pinName"));
+    location.assign(
+      `./searchresult.html?q=${event.target.getAttribute(
+        "pinName"
+      )}&format=${event.target.getAttribute("pinFormat")}`
+    );
   }
 });
 // confirm remove pin modal button
