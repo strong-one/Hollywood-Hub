@@ -216,6 +216,7 @@ function displayShow(data) {
   <p>${data.Released}</p>
   <h3 class="totalSeasons">Total Seasons:</h3>
   <p>${data.totalSeasons}</p>
+  </div>
 
 </section>`;
   infoDisplay.innerHTML = temporary;
