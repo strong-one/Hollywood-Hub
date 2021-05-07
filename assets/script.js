@@ -25,8 +25,10 @@ const renderPins = () => {
   pins.forEach((pin) => {
     let newCard = document.createElement("div");
     newCard.classList.add("card");
+    newCard.classList.add("col-3");
     newCard.innerHTML = `
     <h5 class = "card-title">${pin.name}</h5>
+    <button class="btn btn-danger"> remove</button>
     `;
     switch (pin.format) {
       case "artist": {
