@@ -144,12 +144,12 @@ function displayBand(data) {
   let band = data.artists[0];
   let temp = `
       <div class="card mb-3">
-        <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
+        <img class="card-img-top w-50 h-50 mx-auto m-3" src="${band.strArtistLogo}" alt="Band Logo" />
+        <button type="button" id="pinSrh" class="w-25 m-auto" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
-          <p class="card-text">${band.strBiographyEN}</p>
-          <h6 class="card-title">discography</h6>
+          <p class="card-text px-5">${band.strBiographyEN}</p>
+          <h6 class="card-title">Discography</h6>
           <div class="row" id="discography">
             
           </div>
@@ -179,6 +179,7 @@ function getDiscography(artistID) {
         let newCard = document.createElement("div");
         // add class and styling to the card
         newCard.classList.add("card");
+        newCard.classList.add("m-2");
         newCard.setAttribute("style", "width: 18rem;");
         // set the inner html to show album info
         newCard.innerHTML = `
@@ -199,9 +200,9 @@ function getDiscography(artistID) {
 
 function displayShow(data) {
   var temporary = `<section class="tvShows">
-  <div class="card mb-3">
-  <img class="card-img-top" src="${data.Poster}" alt="Tv Posters" />
-  <button type="button" id="pinSrh" data="${data.Title}" format = "series" img="${data.Poster}" >Pin💕</button>
+  <div class="card mb-3 text-center">
+  <img class="card-img-top w-25 h-25 mx-auto m-3" src="${data.Poster}" alt="Tv Posters" />
+  <button type="button" id="pinSrh" class="w-25 m-auto" data="${data.Title}" format = "series" img="${data.Poster}" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
@@ -222,9 +223,9 @@ function displayShow(data) {
 
 function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
-  <div class="card mb-3">
-        <img class="card-img-top" src="${data.Poster}" alt="Movie Posters" />
-  <button type="button" id="pinSrh" data="${data.Title}" format = "movie" img="${data.Poster}" >Pin💕</button>
+  <div class="card mb-3 text-center">
+        <img class="card-img-top w-25 h-25 mx-auto m-3" src="${data.Poster}" alt="Movie Posters" />
+  <button type="button" id="pinSrh" class="w-25 m-auto" data="${data.Title}" format = "movie" img="${data.Poster}" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
