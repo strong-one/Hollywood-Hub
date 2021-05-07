@@ -60,87 +60,108 @@
     <!-- card container for saved search results -->
 
     <!-- Pins -->
-    <div class="container">
+    <div class="container" id="pinDisplay">
       <div class="row">
         <div class="col-12">
           <h3>Music Pins</h3>
-          <div id="pins-insert"></div>
-          <div class="row">
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-          </div>
+
+          <!-- music pin container -->
+          <div class="row" id="pins-insert"></div>
+
         </div>
       </div>
       <div id="music-pins" class="row"></div>
       <div class="row">
         <div class="col-12">
           <h3>Movie Pins</h3>
-          <div class="row">
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-          </div>
+
+          <div class="row" id="pins-insert-mov"></div>
+
+
         </div>
       </div>
       <div id="movie-pins" class="row"></div>
       <div class="row">
         <div class="col-12">
           <h3>Tv Series Pins</h3>
-          <div class="row">
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-            <div class="col card"></div>
-          </div>
+
+          <div class="row" id="pins-insert-tv"></div>
+
         </div>
       </div>
       <div id="tvseries-pins" class="row"></div>
 
-      <div
-        class="modal fade"
-        id="openSearchModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="openSearchModal"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="openSearchModalTitle">
-                Search for Artist, Movie, or Show
-              </h5>
-            </div>
-            <div class="modal-body">
-              <form id="searchModal">
-                <div class="form-group p-2">
-                  <select class="form-select" id="format">
-                    <option value="artist">Artist</option>
-                    <option value="movie">Movie</option>
-                    <option value="series">Tv Series</option>
-                  </select>
-                </div>
-                <div class="form-group p-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Name"
-                    id="searchQuery"
-                    required
-                  />
-                </div>
-                <div class="form-group p-2">
-                  <button class="btn btn-primary w-100">Search</button>
-                </div>
-              </form>
-            </div>
+    </div>
+    <!-- search modal -->
+    <div
+      class="modal fade"
+      id="openSearchModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="openSearchModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="openSearchModalTitle">
+              Search for Artist, Movie, or Show
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form id="searchModal">
+              <div class="form-group p-2">
+                <select class="form-select" id="format">
+                  <option value="artist">Artist</option>
+                  <option value="movie">Movie</option>
+                  <option value="series">Tv Series</option>
+                </select>
+              </div>
+              <div class="form-group p-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  id="searchQuery"
+                  required
+                />
+              </div>
+              <div class="form-group p-2">
+                <button class="btn btn-primary w-100">Search</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+    
+    <!-- confirm remove modal -->
+    <div
+    class="modal fade"
+    id="openConfirmRemoveModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="openConfirmRemoveModal"
+    aria-hidden="true"
+    >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confrimRemoveModalTitle">
+            Are you sure you want to remove this pin?
+          </h5>
+        </div>
+        <div class="modal-body">
+          <button type="button" class="btn btn-danger" id="confirmRemoveBtn" pinName = "name" data-bs-dismiss="modal">Yes, Remove Pin</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Don't Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <footer class="container-fluid fixed-bottom">
       <div class="footer-content">
