@@ -60,7 +60,7 @@
     <!-- card container for saved search results -->
 
     <!-- Pins -->
-    <div class="container">
+    <div class="container" id="pinDisplay">
       <div class="row">
         <div class="col-12">
           <h3>Music Pins</h3>
@@ -150,7 +150,7 @@
           </h5>
         </div>
         <div class="modal-body">
-          <button type="button" class="btn btn-primary">Yes, Remove Pin</button>
+          <button type="button" class="btn btn-danger" id="confirmRemoveBtn" pinName = "name" data-bs-dismiss="modal">Yes, Remove Pin</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Don't Remove</button>
         </div>
       </div>
