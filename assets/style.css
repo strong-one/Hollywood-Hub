@@ -58,6 +58,7 @@ footer {
   font-family: "Kaushan Script", cursive;
   font-size: 70px;
   margin-top: 25px;
+  -webkit-text-stroke: 1px white;
 }
 
 .btn-primary {
@@ -80,7 +81,6 @@ footer {
 }
 
 .background {
-  /* background-color: darkturquoise; */
   border: solid 5px black;
   margin-bottom: 30px;
   background-image: url(./img/hollywoodsign.jpg);
@@ -91,5 +91,5 @@ footer {
 }
 
 body {
-  background-color: ghostwhite;
+  background-color: cornsilk;
 }
