@@ -19,14 +19,25 @@ searchModal.addEventListener("submit", function (event) {
 });
 // pin level remove pin button click event
 pinDisplay.addEventListener("click", (event) => {
+  console.log(event.target);
   // target only the buttons in the cards
-  if (event.target.getAttribute("type") === "button") {
+
+  if (event.target.getAttribute("id") === "openConfirmModalBtn") {
     event.preventDefault();
+    event.stopPropagation();
+    console.log("pressed the remove key btn");
     console.log(event.target.getAttribute("pinName"));
     // send the name of the pin to the modal remove button
     confrimRemovePinBtn.setAttribute(
       "pinName",
       event.target.getAttribute("pinName")
+    );
+  } else if (event.target.getAttribute("id") === "pinContent") {
+    console.log("search for " + event.target.getAttribute("pinName"));
+    location.assign(
+      `./searchresult.html?q=${event.target.getAttribute(
+        "pinName"
+      )}&format=${event.target.getAttribute("pinFormat")}`
     );
   }
 });
@@ -55,21 +66,37 @@ const renderPins = () => {
   // generate the new content form the array of pins
   pins.forEach((pin) => {
     let newCard = document.createElement("div");
-    newCard.classList.add("card");
+
     newCard.classList.add("col-3");
     newCard.classList.add("m-1");
     newCard.innerHTML = `
-    <div class="card-body">
-      <h5 class = "card-title">${pin.name}</h5>
+    
+    <div class = "card" >
+      <button 
+        class = "btn"
+        type="button" 
+        id="pinContent" 
+        pinName = "${pin.name}" 
+        pinFormat = "${pin.format}">
+        ${pin.name}
+      <img 
+        class= "img-thumbnail bg-dark" 
+        src="${pin.img}" 
+        alt="pin Image"
+        id="pinContent" 
+        pinName = "${pin.name}" 
+        pinFormat = "${pin.format}">
+        
+      </button>
       <button
-        type = "button" 
-        class="btn btn-danger btn-sm" 
-        data-bs-toggle="modal"
-        data-bs-target="#openConfirmRemoveModal"
-        pinName = "${pin.name}"
-        id="openConfirmModalBtn"
-      >
-        Remove pin
+          type = "button" 
+          class="btn btn-danger btn-sm" 
+          data-bs-toggle="modal"
+          data-bs-target="#openConfirmRemoveModal"
+          pinName = "${pin.name}"
+          id="openConfirmModalBtn"
+        >
+          Remove pin
       </button>
     </div>
     `;
