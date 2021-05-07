@@ -35,6 +35,7 @@ document.querySelector("#display").addEventListener("click", function (event) {
     // get data of what I want populated
     var pinName = event.target.getAttribute("data");
     var pinType = event.target.getAttribute("format");
+    var pinImg = event.target.getAttribute("img");
     // parsing pins and turning them into objects, if none, there will be an empty array
     var pins = JSON.parse(localStorage.getItem("pins")) || [];
 
@@ -47,7 +48,7 @@ document.querySelector("#display").addEventListener("click", function (event) {
       }
     });
     // artist name will be selected for pin on html
-    filteredPins.push({ name: pinName, format: pinType });
+    filteredPins.push({ name: pinName, format: pinType, img: pinImg });
     // all filtered pins will be stored in Locally
     localStorage.setItem("pins", JSON.stringify(filteredPins));
 
@@ -144,7 +145,7 @@ function displayBand(data) {
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" data="${band.strArtist}"format = "artist" >Pin💕</button>
+        <button type="button" id="pinSrh" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text">${band.strBiographyEN}</p>
@@ -200,7 +201,7 @@ function displayShow(data) {
   var temporary = `<section class="tvShows">
   <div class="card mb-3">
   <img class="card-img-top" src="${data.Poster}" alt="Tv Posters" />
-  <button type="button" id="pinSrh" data="${data.Title}" format = "series" >Pin💕</button>
+  <button type="button" id="pinSrh" data="${data.Title}" format = "series" img="${data.Poster}" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
@@ -223,7 +224,7 @@ function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
   <div class="card mb-3">
         <img class="card-img-top" src="${data.Poster}" alt="Movie Posters" />
-  <button type="button" id="pinSrh" data="${data.Title}" format = "movie" >Pin💕</button>
+  <button type="button" id="pinSrh" data="${data.Title}" format = "movie" img="${data.Poster}" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
