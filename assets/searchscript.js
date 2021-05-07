@@ -145,7 +145,7 @@ function displayBand(data) {
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top w-50 h-50 mx-auto m-3" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" class="w-25 m-auto" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
+        <button type="button" id="pinSrh" class="w-25 m-auto btn btn-primary" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text px-5">${band.strBiographyEN}</p>
@@ -202,7 +202,7 @@ function displayShow(data) {
   var temporary = `<section class="tvShows">
   <div class="card mb-3 text-center">
   <img class="card-img-top w-25 h-25 mx-auto m-3" src="${data.Poster}" alt="Tv Posters" />
-  <button type="button" id="pinSrh" class="w-25 m-auto" data="${data.Title}" format = "series" img="${data.Poster}" >Pin💕</button>
+  <button type="button" id="pinSrh" class="w-25 m-auto btn btn-primary" data="${data.Title}" format = "series" img="${data.Poster}">Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
@@ -216,6 +216,7 @@ function displayShow(data) {
   <p>${data.Released}</p>
   <h3 class="totalSeasons">Total Seasons:</h3>
   <p>${data.totalSeasons}</p>
+  </div>
 
 </section>`;
   infoDisplay.innerHTML = temporary;
@@ -225,7 +226,7 @@ function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
   <div class="card mb-3 text-center">
         <img class="card-img-top w-25 h-25 mx-auto m-3" src="${data.Poster}" alt="Movie Posters" />
-  <button type="button" id="pinSrh" class="w-25 m-auto" data="${data.Title}" format = "movie" img="${data.Poster}" >Pin💕</button>
+  <button type="button" id="pinSrh" class="w-25 m-auto btn btn-primary" data="${data.Title}" format = "movie" img="${data.Poster}" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
