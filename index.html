@@ -22,9 +22,9 @@
   </head>
   <body>
     <!-- navbar -->
-    <section class="background"> 
+    <section class="background">
       <nav class="navbar navbar-light">
-        <div class="container-fluid  justify-content-center">
+        <div class="container-fluid justify-content-center">
           <a class="navbar-brand" href="#">
             <img
               src="https://static.thenounproject.com/png/652105-200.png"
@@ -67,7 +67,6 @@
 
           <!-- music pin container -->
           <div class="row" id="pins-insert"></div>
-
         </div>
       </div>
       <div id="music-pins" class="row"></div>
@@ -76,8 +75,6 @@
           <h3>Movie Pins</h3>
 
           <div class="row" id="pins-insert-mov"></div>
-
-
         </div>
       </div>
       <div id="movie-pins" class="row"></div>
@@ -86,11 +83,9 @@
           <h3>Tv Series Pins</h3>
 
           <div class="row" id="pins-insert-tv"></div>
-
         </div>
       </div>
       <div id="tvseries-pins" class="row"></div>
-
     </div>
     <!-- search modal -->
     <div
@@ -134,34 +129,44 @@
         </div>
       </div>
     </div>
-    
+
     <!-- confirm remove modal -->
     <div
-    class="modal fade"
-    id="openConfirmRemoveModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="openConfirmRemoveModal"
-    aria-hidden="true"
+      class="modal fade"
+      id="openConfirmRemoveModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="openConfirmRemoveModal"
+      aria-hidden="true"
     >
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confrimRemoveModalTitle">
-            Are you sure you want to remove this pin?
-          </h5>
-        </div>
-        <div class="modal-body">
-          <button type="button" class="btn btn-danger" id="confirmRemoveBtn" pinName = "name" data-bs-dismiss="modal">Yes, Remove Pin</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Don't Remove</button>
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confrimRemoveModalTitle">
+              Are you sure you want to remove this pin?
+            </h5>
+          </div>
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="confirmRemoveBtn"
+              pinName="name"
+              data-bs-dismiss="modal"
+            >
+              Yes, Remove Pin
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No, Don't Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
 
     <footer class="container-fluid">
       <div class="footer-content">
