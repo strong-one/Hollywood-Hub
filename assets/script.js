@@ -21,21 +21,24 @@ searchModal.addEventListener("submit", function (event) {
 pinDisplay.addEventListener("click", (event) => {
   console.log(event.target);
   // target only the buttons in the cards
-  if (event.target.getAttribute("type") === "button") {
-    console.log(event.target.getAttribute("id"));
-    if (event.target.getAttribute("id") === "openConfirmModalBtn") {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log("pressed the remove key btn");
-      console.log(event.target.getAttribute("pinName"));
-      // send the name of the pin to the modal remove button
-      confrimRemovePinBtn.setAttribute(
-        "pinName",
-        event.target.getAttribute("pinName")
-      );
-    } else if (event.target.getAttribute("id") === "pinContent") {
-      console.log("search for " + event.target.getAttribute("pinName"));
-    }
+
+  if (event.target.getAttribute("id") === "openConfirmModalBtn") {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("pressed the remove key btn");
+    console.log(event.target.getAttribute("pinName"));
+    // send the name of the pin to the modal remove button
+    confrimRemovePinBtn.setAttribute(
+      "pinName",
+      event.target.getAttribute("pinName")
+    );
+  } else if (event.target.getAttribute("id") === "pinContent") {
+    console.log("search for " + event.target.getAttribute("pinName"));
+    location.assign(
+      `./searchresult.html?q=${event.target.getAttribute(
+        "pinName"
+      )}&format=${event.target.getAttribute("pinFormat")}`
+    );
   }
 });
 // confirm remove pin modal button
@@ -70,14 +73,20 @@ const renderPins = () => {
     
     <div class = "card" >
       <button 
+        class = "btn"
         type="button" 
         id="pinContent" 
-        pinName = "${pin.name}" pinFormat = "${pin.format}">
-      <section class = "card-body" id="pinContent" 
-      pinName = "${pin.name}" pinFormat = "${pin.format}">
-      <img src="${pin.img}" alt="pin Image">
-      ${pin.name}
-      </section>
+        pinName = "${pin.name}" 
+        pinFormat = "${pin.format}">
+        ${pin.name}
+      <img 
+        class= "img-thumbnail bg-dark" 
+        src="${pin.img}" 
+        alt="pin Image"
+        id="pinContent" 
+        pinName = "${pin.name}" 
+        pinFormat = "${pin.format}">
+        
       </button>
       <button
           type = "button" 
