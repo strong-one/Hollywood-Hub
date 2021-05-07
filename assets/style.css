@@ -1,8 +1,9 @@
 footer {
-  /* position: absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0; */
+  right: 0;
+
   margin-top: 20px;
   background-color: #111;
   height: auto;
@@ -40,6 +41,11 @@ footer {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
+}
+.footer-bottom span {
+  text-transform: uppercase;
+  opacity: 0.4;
+  font-weight: 200;
 }
 .credits li {
   display: inline;
@@ -92,4 +98,7 @@ footer {
 
 body {
   background-color: cornsilk;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
