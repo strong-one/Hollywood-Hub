@@ -26,6 +26,34 @@ searchModal.addEventListener("submit", function (event) {
   location.assign(`./searchresult.html?q=${query}&format=${format}`);
 });
 
+// add on click event for pin button that will save info to front page save area
+
+document.querySelector("#display").addEventListener("click", function (event) {
+  // looking for an id within the static element of html with index of pinSrh
+  if (event.target.getAttribute("id").indexOf("pinSrh") > -1) {
+    event.preventDefault();
+    // get data of what I want populated
+    var pinName = event.target.getAttribute("data");
+    var pinType = event.target.getAttribute("format");
+    // parsing pins and turning them into objects, if none, there will be an empty array
+    var pins = JSON.parse(localStorage.getItem("pins")) || [];
+
+    var filteredPins = pins.filter(function (pin) {
+      // if pin is existing, do not add (false), else, add to array (true)
+      if (pin.name === pinName) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    // artist name will be selected for pin on html
+    filteredPins.push({ name: pinName, format: pinType });
+    // all filtered pins will be stored in Locally
+    localStorage.setItem("pins", JSON.stringify(filteredPins));
+
+    // need to render filteredPins to populate on HTML
+  }
+});
 //-----------
 // Functions
 //-----------
@@ -101,11 +129,12 @@ function ombdCall(requestUrl, format) {
       console.log(data);
       if (format === "series") {
         displayShow(data);
+      } else if (format === "movie") {
+        movieDisplay(data);
       }
     });
 }
 
-// add on click event for pin button that will save info to front page save area
 // multiple columns for movies and artists
 
 function displayBand(data) {
@@ -115,7 +144,7 @@ function displayBand(data) {
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" data="${band.strArtist}">Pin💕</button>
+        <button type="button" id="pinSrh" data="${band.strArtist}"format = "artist" >Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text">${band.strBiographyEN}</p>
@@ -166,41 +195,41 @@ function getDiscography(artistID) {
 
 // function to save pins in local storage
 // need to find a static html element to add event listener too since id is in a template.
-document.querySelector("#display").addEventListener("click", function (event) {
-  // looking for an id within the static element of html with index of pinSrh
-  if (event.target.getAttribute("id").indexOf("pinSrh") > -1) {
-    event.preventDefault();
-    // get data of what I want populated
-    var artistName = event.target.getAttribute("data");
-    // parsing pins and turning them into objects, if none, there will be an empty array
-    var pins = JSON.parse(localStorage.getItem("pins")) || [];
-
-    var filteredPins = pins.filter(function (pin) {
-      // if pin is existing, do not add (false), else, add to array (true)
-      if (pin === artistName) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    // artist name will be selected for pin on html
-    filteredPins.push(artistName);
-    // all filtered pins will be stored in Locally
-    localStorage.setItem("pins", JSON.stringify(filteredPins));
-
-    // need to render filteredPins to populate on HTML
-  }
-});
 
 function displayShow(data) {
   var temporary = `<section class="tvShows">
+
+  <button type="button" id="pinSrh" data="${data.Title}" format = "series" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
   <p> ${data.Actors} </p>
+  <h2 class="awards">Awards :</h2>
+  <p> ${data.Awards}
   <h2 class="plot">Plot : </h2>
   <p> ${data.Plot} </p>
-  <h3 class="rated">Tv Rating: </h3>
+  <h2 class="rated">Tv Rating: </h2>
   <p> ${data.Rated} </p>
+  <h3 class="released">Released Date:</h3>
+  <p>${data.Released}</p>
+  <h3 class="totalSeasons">Total Seasons:</h3>
+  <p>${data.totalSeasons}</p>
+
 </section>`;
   infoDisplay.innerHTML = temporary;
+}
+
+function movieDisplay(data) {
+  var movies = `<section class="movieDisplay">
+  <button type="button" id="pinSrh" data="${data.Title}" format = "movie" >Pin💕</button>
+  <h1> ${data.Title} </h1>
+  <h2 class="actor">Actors :</h2>
+  <p> ${data.Actors} </p>
+  <h2 class="awards">Awards :</h2>
+  <p> ${data.Awards}</p>
+  <h2 class="plot">Plot : </h2>
+  <p> ${data.Plot} </p>
+  <h3 class="rated">Rated: </h3>
+  <p> ${data.Rated} </p>
+</section>`;
+  infoDisplay.innerHTML = movies;
 }
