@@ -198,7 +198,8 @@ function getDiscography(artistID) {
 
 function displayShow(data) {
   var temporary = `<section class="tvShows">
-
+  <div class="card mb-3">
+  <img class="card-img-top" src="${data.Poster}" alt="Tv Posters" />
   <button type="button" id="pinSrh" data="${data.Title}" format = "series" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
@@ -220,6 +221,8 @@ function displayShow(data) {
 
 function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
+  <div class="card mb-3">
+        <img class="card-img-top" src="${data.Poster}" alt="Movie Posters" />
   <button type="button" id="pinSrh" data="${data.Title}" format = "movie" >Pin💕</button>
   <h1> ${data.Title} </h1>
   <h2 class="actor">Actors :</h2>
