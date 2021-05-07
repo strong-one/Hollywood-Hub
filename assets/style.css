@@ -1,5 +1,5 @@
 footer {
-  position: sticky;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -41,6 +41,11 @@ footer {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
+}
+.footer-bottom span {
+  text-transform: uppercase;
+  opacity: 0.4;
+  font-weight: 200;
 }
 .credits li {
   display: inline;
