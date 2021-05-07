@@ -47,6 +47,7 @@ footer {
 .credits li:not(:first-child)::before {
   content: " | ";
 }
+
 .navbar-brand {
   display: flex;
   align-items: baseline;
@@ -57,10 +58,38 @@ footer {
   font-family: "Kaushan Script", cursive;
   font-size: 70px;
   margin-top: 25px;
+  -webkit-text-stroke: 1px white;
 }
 
 .btn-primary {
   width: 175px;
   height: 50px;
   border-color: black;
+}
+
+.container-fluid {
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+#mainSearch {
+  margin-right: 15%;
+}
+
+.navbar {
+  padding-top: 40px;
+}
+
+.background {
+  border: solid 5px black;
+  margin-bottom: 30px;
+  background-image: url(./img/hollywoodsign.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+
+body {
+  background-color: cornsilk;
 }
