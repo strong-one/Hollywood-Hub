@@ -145,7 +145,7 @@ function displayBand(data) {
   let temp = `
       <div class="card mb-3">
         <img class="card-img-top w-50 h-50 mx-auto m-3" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" class="w-25 m-auto" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
+        <button type="button" id="pinSrh" class="w-25 m-auto bg-blue" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
         <div class="card-body">
           <h5 class="card-title">${band.strArtist}</h5>
           <p class="card-text px-5">${band.strBiographyEN}</p>
