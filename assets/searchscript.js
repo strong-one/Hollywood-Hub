@@ -128,10 +128,14 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
-      if (format === "series") {
-        displayShow(data);
-      } else if (format === "movie") {
-        movieDisplay(data);
+      if (data.Response === "True") {
+        if (format === "series") {
+          displayShow(data);
+        } else if (format === "movie") {
+          movieDisplay(data);
+        }
+      } else {
+        displayNoResultsFound();
       }
     });
 }
@@ -158,13 +162,7 @@ function displayBand(data) {
     infoDisplay.innerHTML = temp;
     getDiscography(band.idArtist);
   } else {
-    let temp = `
-      <h1>
-        Sorry, No results found.
-      </h1>
-      <p>please check for spelling errors and punctuation</p>
-    `;
-    infoDisplay.innerHTML = temp;
+    displayNoResultsFound();
   }
 }
 // get and display the discography for the selected artist
@@ -244,4 +242,14 @@ function movieDisplay(data) {
   <p> ${data.Rated} </p>
 </section>`;
   infoDisplay.innerHTML = movies;
+}
+
+function displayNoResultsFound() {
+  let temp = `
+  <h1>
+    Sorry, No results found.
+  </h1>
+  <p>please check for spelling errors and punctuation</p>
+  `;
+  infoDisplay.innerHTML = temp;
 }
