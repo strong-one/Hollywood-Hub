@@ -84,6 +84,9 @@ footer {
 #pinDisplay {
   min-height: 38.75vh;
 }
+#display {
+  min-height: 36.2vh;
+}
 .navbar {
   padding-top: 40px;
 }
