@@ -128,38 +128,44 @@ function ombdCall(requestUrl, format) {
     })
     .then(function (data) {
       console.log(data);
-      if (format === "series") {
-        displayShow(data);
-      } else if (format === "movie") {
-        movieDisplay(data);
+      if (data.Response === "True") {
+        if (format === "series") {
+          displayShow(data);
+        } else if (format === "movie") {
+          movieDisplay(data);
+        }
+      } else {
+        displayNoResultsFound();
       }
     });
 }
 
-// multiple columns for movies and artists
+// display the band information
 
 function displayBand(data) {
-  console.log("******data", data);
-
-  let band = data.artists[0];
-  let temp = `
-      <div class="card mb-3">
-        <img class="card-img-top w-50 h-50 mx-auto m-3" src="${band.strArtistLogo}" alt="Band Logo" />
-        <button type="button" id="pinSrh" class="w-25 m-auto btn btn-primary" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
-        <div class="card-body">
-          <h5 class="card-title">${band.strArtist}</h5>
-          <p class="card-text px-5">${band.strBiographyEN}</p>
-          <h6 class="card-title">Discography</h6>
-          <div class="row" id="discography">
-            
+  if (data.artists !== null) {
+    let band = data.artists[0];
+    let temp = `
+        <div class="card mb-3">
+          <img class="card-img-top w-50 h-50 mx-auto m-3" src="${band.strArtistLogo}" alt="Band Logo" />
+          <button type="button" id="pinSrh" class="w-25 m-auto btn btn-primary" data="${band.strArtist}"format = "artist" img="${band.strArtistLogo}">Pin💕</button>
+          <div class="card-body">
+            <h5 class="card-title">${band.strArtist}</h5>
+            <p class="card-text px-5">${band.strBiographyEN}</p>
+            <h6 class="card-title">Discography</h6>
+            <div class="row" id="discography">
+              
+            </div>
           </div>
         </div>
-      </div>
-  `;
-  infoDisplay.innerHTML = temp;
-  getDiscography(band.idArtist);
+    `;
+    infoDisplay.innerHTML = temp;
+    getDiscography(band.idArtist);
+  } else {
+    displayNoResultsFound();
+  }
 }
-
+// get and display the discography for the selected artist
 function getDiscography(artistID) {
   let url = `https://theaudiodb.com/api/v1/json/${aduiodbKey}/album.php?i=${artistID}`;
   fetch(url)
@@ -195,9 +201,7 @@ function getDiscography(artistID) {
     });
 }
 
-// function to save pins in local storage
-// need to find a static html element to add event listener too since id is in a template.
-
+// display the tv show information
 function displayShow(data) {
   var temporary = `<section class="tvShows">
   <div class="card mb-3 text-center">
@@ -221,7 +225,7 @@ function displayShow(data) {
 </section>`;
   infoDisplay.innerHTML = temporary;
 }
-
+// display the movie information
 function movieDisplay(data) {
   var movies = `<section class="movieDisplay">
   <div class="card mb-3 text-center">
@@ -238,4 +242,14 @@ function movieDisplay(data) {
   <p> ${data.Rated} </p>
 </section>`;
   infoDisplay.innerHTML = movies;
+}
+
+function displayNoResultsFound() {
+  let temp = `
+  <h1>
+    Sorry, No results found.
+  </h1>
+  <p>please check for spelling errors and punctuation</p>
+  `;
+  infoDisplay.innerHTML = temp;
 }
